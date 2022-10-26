@@ -6,10 +6,10 @@ import { FaLaptop, FaRobot } from 'react-icons/fa';
 
 
 const Home = () => {
-    const { courses } = useContext(AuthContext);
+    const { courses,color } = useContext(AuthContext);
     return (
       <>
-      <div className='text-center my-3'>
+      <div className={!color ?'text-center text-white':'text-center text-dark'}>
       <h2><FaLaptop /> Learn With More Fun</h2>
       <h2><FaRobot /> Touch Your Future </h2>
       </div>

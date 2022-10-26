@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import { Col } from 'react-bootstrap';
 
 const Courses = ({ course }) => {
-    const { title, image_url, details, id, rating, total_view } = course;
+    const { title, image_url, details,id, rating, total_view } = course;
     return (
-        <Col lg='6'>
+        <Col lg='4'>
             <Card className='mt-2 shadow-lg img-fluid bg-info' style={{ width: '45rem' }}>
                 <Card.Header className='d-flex justify-content-between align-items-center'>
                     <div className='d-flex justify-content-between align-items-center'>
@@ -23,7 +23,7 @@ const Courses = ({ course }) => {
 
                     <Card.Text>
                         {details.length > 200 ?
-                            <>{details.slice(0, 100) + '...'}</>
+                            <>{details.slice(0, 70) + '...'}</>
                             :
                             <>{details}</>
                         }
@@ -32,7 +32,7 @@ const Courses = ({ course }) => {
                         <p >  <FaStar></FaStar> {rating.number}</p>
                         <p><FaDollarSign/>  {total_view}</p>
                     </Card.Footer>
-                    <button className='btn btn-warning w-100'>Get Premium</button>
+                    <button className='btn btn-warning w-100'>Details</button>
                 </Card.Body>
             </Card>
         </Col>

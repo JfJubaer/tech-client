@@ -9,6 +9,7 @@ const AuthContextProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [courses, setCourses] = useState([]);
+    const [color, setColor] = useState(false);
 
     useEffect(()=>{
         fetch(`https://a-10-server.vercel.app/courses`)
@@ -60,7 +61,8 @@ const AuthContextProvider = ({children}) => {
 
     }, [])
 
-    const authInfo = { user,courses, loading, setLoading,providerLogin, logOut, updateUserProfile,verifyEmail,createUser, signIn };
+    const authInfo = { user,courses, loading, setLoading,providerLogin, logOut, updateUserProfile,verifyEmail,createUser, signIn
+                        ,color, setColor };
 
     return (
         <AuthContext.Provider value={authInfo}>
