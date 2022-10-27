@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../LayOut/Main/Main';
+import CourseDetails from '../Pages/CourseDetails/CourseDetails';
 
 import Home from '../Pages/Home/Home';
 import NoPage from '../Pages/NoPage/NoPage';
@@ -19,6 +20,11 @@ export const router = createBrowserRouter([
             {
                 path:'/course',
                 element:<></>
+            },
+            {
+                path:'/course/:id',
+                loader:({params})=>fetch(`https://a-10-server.vercel.app/courses/${params.id}`),
+                element:<CourseDetails></CourseDetails>
             },
             {
                 path:'/home',

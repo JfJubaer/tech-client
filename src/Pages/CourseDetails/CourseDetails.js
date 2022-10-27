@@ -1,13 +1,13 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { FaBookmark, FaDollarSign, FaShareAlt, FaStar } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { Col } from 'react-bootstrap';
+import {  useLoaderData } from 'react-router-dom';
 
-const Courses = ({ course }) => {
-    const { title, image_url, details,id, rating, total_view } = course;
+
+const CourseDetails = () => {
+    const { title, image_url, details, rating, total_view } = useLoaderData();
     return (
-        <Col lg='4'>
+        <div>
             <Card className='mt-2 shadow-lg img-fluid bg-info' style={{ width: '45rem' }}>
                 <Card.Header className='d-flex justify-content-between align-items-center'>
                     <div className='d-flex justify-content-between align-items-center'>
@@ -20,23 +20,19 @@ const Courses = ({ course }) => {
                 </Card.Header>
                 <Card.Img variant="top" style={{ height: '200px' }} src={image_url} />
                 <Card.Body>
-
+                        {details}
                     <Card.Text>
-                        {details.length > 200 ?
-                            <>{details.slice(0, 70) + '...'}</>
-                            :
-                            <>{details}</>
-                        }
+                        <details></details>
                     </Card.Text>
                     <Card.Footer className='d-flex justify-content-between align-items-center'>
                         <p >  <FaStar></FaStar> {rating.number}</p>
                         <p><FaDollarSign/>  {total_view}</p>
                     </Card.Footer>
-                    <button className='btn btn-warning w-100'><Link className='text-dark text-decoration-none' to={`/course/${id}`}>Details</Link></button>
+                    <button className='btn btn-warning w-100'>Details</button>
                 </Card.Body>
-            </Card>
-        </Col>
+                </Card>
+        </div>
     );
 };
 
-export default Courses;
+export default CourseDetails;

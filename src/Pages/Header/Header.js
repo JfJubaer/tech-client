@@ -2,10 +2,11 @@ import React from 'react';
 import { useContext } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { FcCalculator } from "react-icons/fc";
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContextProvider';
 
 const Header = () => {
-    const {color,setColor}=useContext(AuthContext);
+    const { color, setColor } = useContext(AuthContext);
     return (
         <Navbar bg="warning" expand="lg" >
             <Container>
@@ -14,10 +15,10 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <div className='d-flex justify-content-between'>
-                        <div><Nav.Link href="#home">Home</Nav.Link></div>
-                   
-                        <div><Nav.Link href="#link">Link</Nav.Link></div>
-                        <div><button onClick={()=>{setColor(!color)}} className='btn btn-outline-info text-dark'>Change Theme</button></div>
+                            <div><Nav.Link href="/">Home</Nav.Link></div>
+                            <div><Nav.Link href="/">Courses</Nav.Link></div>
+                            <div><Nav.Link href="#link">Link</Nav.Link></div>
+                            <div><button onClick={() => setColor(!color)} className='btn btn-outline-info text-dark'>Change Theme</button></div>
                         </div>
 
                     </Nav>
