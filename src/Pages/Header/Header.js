@@ -25,7 +25,7 @@ const Header = () => {
                             <div><Nav.Link href="/faq">FAQ</Nav.Link></div>
                             <div><Nav.Link href="/blogs">Blogs</Nav.Link></div>
                             <div><button onClick={handleTheme} className='btn btn-outline-info text-dark'>Change Theme</button></div>
-                            <div><Nav.Link href="/login"><><FaUser />Login</></Nav.Link></div>
+                            <div><Nav.Link href="/mainLogin"><><FaUser />Login</></Nav.Link></div>
                         </div>
 
                     </Nav>
