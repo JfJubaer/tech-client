@@ -26,7 +26,7 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <div className='d-flex justify-content-between'>
+                        
                             <div><Nav.Link href="/">Home</Nav.Link></div>
                             <div><Nav.Link href="/">Courses</Nav.Link></div>
                             <div><Nav.Link href="/faq">FAQ</Nav.Link></div>
@@ -38,7 +38,7 @@ const Header = () => {
                                     <Button onClick={handleLogOut} className='btn' variant=''>LogOut</Button>
                                 </> :
                                 <div><Nav.Link href="/mainLogin"><><FaUser />Login</></Nav.Link></div>}</div>
-                        </div>
+                        
 
                     </Nav>
                 </Navbar.Collapse>
