@@ -13,6 +13,7 @@ const Footer = () => {
                 <div>All CopyRight Reserved</div><br />
                 <div>Contact US :</div>
                 <div><FaFacebook /> <FaTwitter /> <FaYoutube /></div>
+                <p>Have Patience! Work Hard! YOu will surprise yourself, and eventually, you will be proud of yourself.</p>
             </div>
         </div>
     );

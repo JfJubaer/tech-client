@@ -7,7 +7,11 @@ import FAQ from '../Pages/FAQ/FAQ';
 
 import Home from '../Pages/Home/Home';
 import MainLogin from '../Pages/MainLogin/MainLogin';
+import Register from '../Pages/MainLogin/Register';
+import Terms from '../Pages/MainLogin/terms';
 import NoPage from '../Pages/NoPage/NoPage';
+import Premium from '../Pages/Premium/Premium';
+import Private from './Private';
 
 export const router = createBrowserRouter([
     {
@@ -38,8 +42,17 @@ export const router = createBrowserRouter([
                 element:<MainLogin></MainLogin>
             },
             {
-                path:'/premium',
-                element:<Home></Home>
+                path:'/register',
+                element:<Register></Register>
+            },
+            {
+                path:'/terms',
+                element:<Terms></Terms>
+            },
+            {
+                path:'/premium/:id',
+                loader:({params})=>fetch(`https://a-10-server.vercel.app/courses/${params.id}`),
+                element:<Private><Premium></Premium></Private>
             },
         ]
     },

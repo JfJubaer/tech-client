@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged,  signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import app from '../Firebase/Firebase.config';
 
 export const AuthContext = createContext();
@@ -36,9 +36,6 @@ const AuthContextProvider = ({children}) => {
         return updateProfile(auth.currentUser, profile);
     }
 
-    const verifyEmail = () =>{
-        return sendEmailVerification(auth.currentUser);
-    }
 
     const logOut = () => {
         setLoading(true);
@@ -47,11 +44,10 @@ const AuthContextProvider = ({children}) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log('inside auth state change', currentUser);
 
-            if(currentUser === null || currentUser.emailVerified){
-                setUser(currentUser);
-            }
+            
+            setUser(currentUser);
+            
             setLoading(false);
         });
 
@@ -61,7 +57,7 @@ const AuthContextProvider = ({children}) => {
 
     }, [])
 
-    const authInfo = { user,courses, loading, setLoading,providerLogin, logOut, updateUserProfile,verifyEmail,createUser, signIn
+    const authInfo = { user,courses, loading, setLoading,providerLogin, logOut, updateUserProfile,createUser, signIn
                         ,color, setColor };
 
     return (

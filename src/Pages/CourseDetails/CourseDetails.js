@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContextProvider';
 import { Card } from 'react-bootstrap';
 import { FaBookmark, FaDollarSign, FaDownload, FaShareAlt, FaStar } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { useRef } from "react";
 import { jsPDF } from "jspdf";
 import html2canvas from 'html2canvas';
@@ -13,7 +13,7 @@ import html2canvas from 'html2canvas';
 
 const CourseDetails = () => {
     const { color } = useContext(AuthContext);
-    const { title, image_url, details, rating, total_view } = useLoaderData();
+    const { title, image_url,id, details, rating, total_view } = useLoaderData();
 
     const inputRef = useRef(null);
     const printDocument = () => {
@@ -55,7 +55,9 @@ const CourseDetails = () => {
                         <p >  <FaStar></FaStar> {rating.number}</p>
                         <p><FaDollarSign />  {total_view}</p>
                     </Card.Footer>
-                    <button className='btn btn-secondary w-100'>Get Premium</button>
+                    <button className='btn btn-secondary w-100' ><Link className='text-decoration-none text-light' to={`/premium/${id}`}>
+                    Get Premium</Link>
+                    </button>
                 </Card.Body>
             </Card>
         </div>
