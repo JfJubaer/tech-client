@@ -22,10 +22,10 @@ const Header = () => {
                         <div className='d-flex justify-content-between'>
                             <div><Nav.Link href="/">Home</Nav.Link></div>
                             <div><Nav.Link href="/">Courses</Nav.Link></div>
-                            <div><Nav.Link href="/">FAQ</Nav.Link></div>
-                            <div><Nav.Link href="/">Blogs</Nav.Link></div>
+                            <div><Nav.Link href="/faq">FAQ</Nav.Link></div>
+                            <div><Nav.Link href="/blogs">Blogs</Nav.Link></div>
                             <div><button onClick={handleTheme} className='btn btn-outline-info text-dark'>Change Theme</button></div>
-                            <div><Nav.Link href="/"><><FaUser />Login</></Nav.Link></div>
+                            <div><Nav.Link href="/login"><><FaUser />Login</></Nav.Link></div>
                         </div>
 
                     </Nav>

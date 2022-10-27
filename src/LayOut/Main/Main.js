@@ -11,7 +11,7 @@ import { AuthContext } from '../../Context/AuthContextProvider';
 const Main = () => {
     const {color}=useContext(AuthContext);
     return (
-        <div className={color ? 'bg-white':'bg-dark' } >
+        <div className={color ? 'bg-white text-dark':'bg-dark text-white'} >
             <Header></Header>
             <div className='py-3'>
 
