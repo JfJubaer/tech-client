@@ -1,9 +1,12 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../LayOut/Main/Main';
+import Blogs from '../Pages/Blogs/Blogs';
 import CourseDetails from '../Pages/CourseDetails/CourseDetails';
+import FAQ from '../Pages/FAQ/FAQ';
 
 import Home from '../Pages/Home/Home';
+import MainLogin from '../Pages/MainLogin/MainLogin';
 import NoPage from '../Pages/NoPage/NoPage';
 
 export const router = createBrowserRouter([
@@ -18,16 +21,24 @@ export const router = createBrowserRouter([
                 loader:()=>fetch(`https://a-10-server.vercel.app/courses`),
             },
             {
-                path:'/course',
-                element:<></>
-            },
-            {
                 path:'/course/:id',
                 loader:({params})=>fetch(`https://a-10-server.vercel.app/courses/${params.id}`),
                 element:<CourseDetails></CourseDetails>
             },
             {
-                path:'/home',
+                path:'/faq',
+                element:<FAQ></FAQ>
+            },
+            {
+                path:'/blogs',
+                element:<Blogs></Blogs>
+            },
+            {
+                path:'/mainLogin',
+                element:<MainLogin></MainLogin>
+            },
+            {
+                path:'/premium',
                 element:<Home></Home>
             },
         ]

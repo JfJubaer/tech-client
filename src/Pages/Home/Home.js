@@ -11,7 +11,7 @@ const Home = () => {
       <>
       <div className={!color ?'text-center text-white':'text-center text-dark'}>
       <h2><FaLaptop /> Learn With More Fun</h2>
-      <h2><FaRobot /> Touch Your Future </h2>
+      <h2><FaRobot /> Touch The Future </h2>
       </div>
       <Row>
         {courses.map(course=><Courses key={course.id} course={course}></Courses>)}
