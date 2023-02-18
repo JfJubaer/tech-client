@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../LayOut/Main/Main';
 import Blogs from '../Pages/Blogs/Blogs';
 import CourseDetails from '../Pages/CourseDetails/CourseDetails';
+import AllCourses from '../Pages/Courses/AllCourses';
 import FAQ from '../Pages/FAQ/FAQ';
 
 import Home from '../Pages/Home/Home';
@@ -17,21 +18,25 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
-        loader: () => fetch(`http://localhost:4000/courses`),
+        loader: () => fetch(`https://a-10-server-jfjubaer.vercel.app/courses`),
         children: [
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch(`http://localhost:4000/courses`),
+                loader: () => fetch(`https://a-10-server-jfjubaer.vercel.app/courses`),
             },
             {
                 path: '/course/:id',
-                loader: ({ params }) => fetch(`http://localhost:4000/courses/${params.id}`),
+                loader: ({ params }) => fetch(`https://a-10-server-jfjubaer.vercel.app/courses/${params.id}`),
                 element: <CourseDetails></CourseDetails>
             },
             {
                 path: '/faq',
                 element: <FAQ></FAQ>
+            },
+            {
+                path: '/courses',
+                element: <AllCourses></AllCourses>
             },
             {
                 path: '/blogs',
@@ -51,7 +56,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/premium/:id',
-                loader: ({ params }) => fetch(`http://localhost:4000/courses/${params.id}`),
+                loader: ({ params }) => fetch(`https://a-10-server-jfjubaer.vercel.app/courses/${params.id}`),
                 element: <Private><Premium></Premium></Private>
             },
         ]

@@ -8,7 +8,7 @@ const SideMenu = () => {
     const { courses } = useContext(AuthContext);
     return (
         <ListGroup>
-            {courses.map(c => <ListGroup.Item key={c.id} className='mt-3  bg-info ' >
+            {courses.map(c => <ListGroup.Item key={c.id} className='mt-3 ' style={{ backgroundColor: '#8ceded' }}>
                 <Link className='text-dark text-decoration-none' to={`/course/${c.id}`}>
                     <h4><FcStart />  {c.title}</h4></Link></ListGroup.Item>)}
         </ListGroup>

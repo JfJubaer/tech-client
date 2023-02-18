@@ -4,6 +4,7 @@ import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { FaUser } from 'react-icons/fa';
 import { FcCalculator } from "react-icons/fc";
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContextProvider';
 
 const Header = () => {
@@ -15,30 +16,30 @@ const Header = () => {
     const handleLogOut = () => {
         logOut()
             .then(result => {
-                console.log(result?.user)
             })
             .catch(error => console.error(error))
     }
     return (
-        <Navbar bg="warning" expand="lg" >
+        <Navbar style={{ backgroundColor: '#70dbdb' }} expand="lg" >
             <Container>
-                <Navbar.Brand href="#home"><FcCalculator />  Tech Learning</Navbar.Brand>
+                <Navbar.Brand ><FcCalculator />  Tech Learning</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        
-                            <div><Nav.Link href="/">Home</Nav.Link></div>
-                            <div><Nav.Link href="/">Courses</Nav.Link></div>
-                            <div><Nav.Link href="/faq">FAQ</Nav.Link></div>
-                            <div><Nav.Link href="/blogs">Blogs</Nav.Link></div>
-                            <div><button onClick={handleTheme} className='btn btn-outline-info text-dark'>Change Theme</button></div>
 
-                            <div className='mx-3'>{user?.photoURL?
-                                <><Image title={user.displayName} roundedCircle src={user?.photoURL} style={{ width: '40px' }}></Image>
-                                    <Button onClick={handleLogOut} className='btn' variant=''>LogOut</Button>
-                                </> :
-                                <div><Nav.Link href="/mainLogin"><><FaUser />Login</></Nav.Link></div>}</div>
-                        
+                        <div><Nav.Item ><Link className="nav-link active" aria-current="page" to="/">Home</Link></Nav.Item></div>
+                        <div><Nav.Item ><Link className="nav-link" to="/courses">Courses</Link> </Nav.Item></div>
+                        <div><Nav.Item ><Link className="nav-link" to="/faq">FAQ</Link></Nav.Item></div>
+                        <div><Nav.Item ><Link className="nav-link" to="blogs">Blogs</Link></Nav.Item></div>
+
+                        <div><button onClick={handleTheme} className='btn btn-outline-info text-dark'>Change Theme</button></div>
+
+                        <div className='mx-3'>{user?.photoURL ?
+                            <><Image title={user.displayName} roundedCircle src={user?.photoURL} style={{ width: '40px' }}></Image>
+                                <Button onClick={handleLogOut} className='btn' variant=''>LogOut</Button>
+                            </> :
+                            <div><Nav.Link href="/mainLogin"><><FaUser />Login</></Nav.Link></div>}</div>
+
 
                     </Nav>
                 </Navbar.Collapse>
