@@ -1,21 +1,21 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged,  signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import app from '../Firebase/Firebase.config';
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
-const AuthContextProvider = ({children}) => {
+const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [courses, setCourses] = useState([]);
     const [color, setColor] = useState(false);
 
-    useEffect(()=>{
-        fetch(`https://a-10-server.vercel.app/courses`)
-        .then(res=>res.json())
-        .then(data=>setCourses(data));
-    },[])
+    useEffect(() => {
+        fetch(`http://localhost:4000/courses`)
+            .then(res => res.json())
+            .then(data => setCourses(data));
+    }, [])
 
     const providerLogin = (provider) => {
         setLoading(true);
@@ -45,9 +45,9 @@ const AuthContextProvider = ({children}) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 
-            
+
             setUser(currentUser);
-            
+
             setLoading(false);
         });
 
@@ -57,8 +57,10 @@ const AuthContextProvider = ({children}) => {
 
     }, [])
 
-    const authInfo = { user,courses, loading, setLoading,providerLogin, logOut, updateUserProfile,createUser, signIn
-                        ,color, setColor };
+    const authInfo = {
+        user, courses, loading, setLoading, providerLogin, logOut, updateUserProfile, createUser, signIn
+        , color, setColor
+    };
 
     return (
         <AuthContext.Provider value={authInfo}>

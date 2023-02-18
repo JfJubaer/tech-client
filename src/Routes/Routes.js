@@ -15,49 +15,49 @@ import Private from './Private';
 
 export const router = createBrowserRouter([
     {
-        path:'/',
-        element:<Main></Main>,
-        loader:()=>fetch(`https://a-10-server.vercel.app/courses`),
-        children:[
+        path: '/',
+        element: <Main></Main>,
+        loader: () => fetch(`http://localhost:4000/courses`),
+        children: [
             {
-                path:'/',
-                element:<Home></Home>,
-                loader:()=>fetch(`https://a-10-server.vercel.app/courses`),
+                path: '/',
+                element: <Home></Home>,
+                loader: () => fetch(`http://localhost:4000/courses`),
             },
             {
-                path:'/course/:id',
-                loader:({params})=>fetch(`https://a-10-server.vercel.app/courses/${params.id}`),
-                element:<CourseDetails></CourseDetails>
+                path: '/course/:id',
+                loader: ({ params }) => fetch(`http://localhost:4000/courses/${params.id}`),
+                element: <CourseDetails></CourseDetails>
             },
             {
-                path:'/faq',
-                element:<FAQ></FAQ>
+                path: '/faq',
+                element: <FAQ></FAQ>
             },
             {
-                path:'/blogs',
-                element:<Blogs></Blogs>
+                path: '/blogs',
+                element: <Blogs></Blogs>
             },
             {
-                path:'/mainLogin',
-                element:<MainLogin></MainLogin>
+                path: '/mainLogin',
+                element: <MainLogin></MainLogin>
             },
             {
-                path:'/register',
-                element:<Register></Register>
+                path: '/register',
+                element: <Register></Register>
             },
             {
-                path:'/terms',
-                element:<Terms></Terms>
+                path: '/terms',
+                element: <Terms></Terms>
             },
             {
-                path:'/premium/:id',
-                loader:({params})=>fetch(`https://a-10-server.vercel.app/courses/${params.id}`),
-                element:<Private><Premium></Premium></Private>
+                path: '/premium/:id',
+                loader: ({ params }) => fetch(`http://localhost:4000/courses/${params.id}`),
+                element: <Private><Premium></Premium></Private>
             },
         ]
     },
     {
-        path:'*',
-        element:<NoPage></NoPage>
+        path: '*',
+        element: <NoPage></NoPage>
     }
 ])
