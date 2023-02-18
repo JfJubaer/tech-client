@@ -1,3 +1,25 @@
+ Tech Learning -- a programming educational website 
+ 
+ key features : 
+ 
+•	learn on basic of programming
+
+•	Download course for offline study
+
+•	A free platform of learning 
+
+Technologies :  
+React, Node JS, Express, Bootstrap, Firebase, VS code, Github, Vercel 
+
+live site : 
+https://tech-learning-e6097.web.app/
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
